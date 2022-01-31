@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+.icon{
+  position:absolute;
+  z-index: 4;
+  left:1%;
+  width:fit-content;
+  height:44px;
+  cursor:pointer;
+  padding:22px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hamburguer{
+  top:50%;
+  left:10%;
+  width:30px;
+  height:6px;
+  background:#ff3300;
+  position:absolute;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hamburguer::before{
+  top:-12px;
+  content:"";
+  position: absolute;
+  width:37px;
+  height:6px;
+  background:#ff3300;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.hamburguer::after{
+  top:12px;
+  content:"";
+  position: absolute;
+  width:37px;
+  height:6px;
+  background:#ff3300;
+}
+.list{
+  display:flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  left:1%;
+  padding:45px 0 0;
+  flex-wrap: nowrap;
+  color:white;
+  font-size:1.2rem;
+  font-weight:600;
 }
-
-.App-link {
-  color: #61dafb;
+.list .list-items{
+  list-style: none;
 }
+.list .list-items li{
+  margin:2px 8px;
+  cursor: pointer;
+}
+.list .list-items li:hover{
+  font-weight: 800;
+}
+.icon.icon-active .hamburguer{
+  background:transparent;
+  box-shadow: 0 2px 5px transparent;
+}
+.icon.icon-active .hamburguer:after{
+  top:0;
+  background:white;
+  transform:rotate(225deg);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+.icon.icon-active .hamburguer:before{
+  top:0;
+  background:white;
+  transform:rotate(135deg);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+.menu.menu-open{
+  width:150px;
+  height:100vh;
+  background:#000;
+  box-shadow: 10px 0 69px 0px rgba(0, 0, 0, 0.59);
+}
+.menu.menu-close{
+  display:none;
+  width:0;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
